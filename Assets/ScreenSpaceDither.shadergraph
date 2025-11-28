@@ -1,0 +1,85 @@
+
+{
+  "m_SGVersion": 2,
+  "m_Type": "UnityEditor.ShaderGraph.GraphData",
+  "m_ObjectId": "dither-graph",
+  "m_Properties": [
+    {
+      "m_Name": "_DitherTex",
+      "m_ObjectId": "prop_dithertex",
+      "m_Guid": "tex-guid-001",
+      "m_Type": "Texture2D",
+      "m_DefaultReferenceName": "_DitherTex"
+    },
+    {
+      "m_Name": "_DitherScale",
+      "m_ObjectId": "prop_ditherscale",
+      "m_Type": "Vector1",
+      "m_DefaultValue": 8
+    },
+    {
+      "m_Name": "_Fade",
+      "m_ObjectId": "prop_fade",
+      "m_Type": "Vector1",
+      "m_DefaultValue": 0.5
+    },
+    {
+      "m_Name": "_ColorLevels",
+      "m_ObjectId": "prop_colorlevels",
+      "m_Type": "Vector1",
+      "m_DefaultValue": 8
+    }
+  ],
+  "m_Nodes": [
+    {
+      "m_Name": "ScreenPosition",
+      "m_Type": "UnityEditor.ShaderGraph.ScreenPositionNode",
+      "m_ObjectId": "node_screenpos",
+      "m_Mode": 0
+    },
+    {
+      "m_Name": "Split",
+      "m_Type": "UnityEditor.ShaderGraph.SplitNode",
+      "m_ObjectId": "node_split"
+    },
+    {
+      "m_Name": "Divide",
+      "m_Type": "UnityEditor.ShaderGraph.DivideNode",
+      "m_ObjectId": "node_divide"
+    },
+    {
+      "m_Name": "MultiplyScale",
+      "m_Type": "UnityEditor.ShaderGraph.MultiplyNode",
+      "m_ObjectId": "node_multscale"
+    },
+    {
+      "m_Name": "Frac",
+      "m_Type": "UnityEditor.ShaderGraph.FracNode",
+      "m_ObjectId": "node_frac"
+    },
+    {
+      "m_Name": "SampleDitherTex",
+      "m_Type": "UnityEditor.ShaderGraph.SampleTexture2DNode",
+      "m_ObjectId": "node_sampletex",
+      "m_Texture": "prop_dithertex"
+    },
+    {
+      "m_Name": "Step",
+      "m_Type": "UnityEditor.ShaderGraph.StepNode",
+      "m_ObjectId": "node_step"
+    },
+    {
+      "m_Name": "ColorQuant",
+      "m_Type": "UnityEditor.ShaderGraph.CustomFunctionNode",
+      "m_ObjectId": "node_colorquant",
+      "m_FunctionSource": 0,
+      "m_FunctionName": "ColorQuant",
+      "m_FunctionBody": "float3 ColorQuant(float3 col, float levels, float d) { float inv = 1.0 / levels; float3 q = floor(col * levels + d * inv) * inv; return q; }"
+    },
+    {
+      "m_Name": "Master",
+      "m_Type": "UnityEditor.ShaderGraph.UnlitMasterNode",
+      "m_ObjectId": "node_master"
+    }
+  ]
+}
