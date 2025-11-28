@@ -1,6 +1,8 @@
 # Computer-Graphics-Course-Project
 Intro to CG Course Project
 
+Course Project Presentation Link: https://www.youtube.com/watch?v=cH0vNCv46bM
+
 
 Augie
 
