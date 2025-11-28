@@ -34,8 +34,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnvIntensity: 1
-    - _GotHP: 0
-    - _Wave1Complete: 0
+    - _GotHP: 1
+    - _Wave1Complete: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

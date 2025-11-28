@@ -34,7 +34,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _ScrollSpeed: 1.99
-    - _SlopeActive: 0
+    - _SlopeActive: 1
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
