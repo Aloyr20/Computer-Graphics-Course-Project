@@ -5000,3 +5000,4 @@ MonoBehaviour:
   AoERadius: 3
   spellType: 3
   dropEffect: {fileID: 4690078501059019131, guid: c079329ef09b51645b745cd4c1878def, type: 3}
+  burnDecal: {fileID: 4516957572523455963, guid: f90272e48ac521749889aeb39ff72c83, type: 3}

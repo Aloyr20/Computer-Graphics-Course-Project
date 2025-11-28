@@ -13,13 +13,34 @@ MonoBehaviour:
   m_Name: FullScreenPassRendererFeature
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.FullScreenPassRendererFeature
   m_Active: 1
-  injectionPoint: 600
+  injectionPoint: 450
   fetchColorBuffer: 1
   requirements: 0
   passMaterial: {fileID: 2100000, guid: c26096982a477874cb840db0d7f3cfb6, type: 2}
   passIndex: 0
   bindDepthStencilAttachment: 0
   m_Version: 1
+--- !u!114 &-2670879708664726575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1614fc811f8f184697d9bee70ab9fe5, type: 3}
+  m_Name: DecalRendererFeature
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalRendererFeature
+  m_Active: 1
+  m_Settings:
+    technique: 0
+    maxDrawDistance: 1000
+    decalLayers: 0
+    dBufferSettings:
+      surfaceData: 2
+    screenSpaceSettings:
+      normalBlend: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,7 +69,8 @@ MonoBehaviour:
   - {fileID: 7833122117494664109}
   - {fileID: -8829143834438246108}
   - {fileID: 2017266177753910766}
-  m_RendererFeatureMap: ad6b866f10d7b46c24617a1d76947885ee8d6e96e6c4fe1b
+  - {fileID: -2670879708664726575}
+  m_RendererFeatureMap: ad6b866f10d7b46c24617a1d76947885ee8d6e96e6c4fe1bd17b3d4f0e21efda
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}

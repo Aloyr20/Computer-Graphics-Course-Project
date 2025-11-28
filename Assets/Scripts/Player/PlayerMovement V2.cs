@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,6 +38,9 @@ public class PlayerMovementV2 : MonoBehaviour
     public float maxSlope;
     private RaycastHit slopeHit;
     private bool slopeExit;
+
+    public SlopeController slopeController;
+
 
     public MovementState state;
     public enum MovementState
@@ -215,5 +219,13 @@ public class PlayerMovementV2 : MonoBehaviour
     {
         slopeExit = false;
         jumpable = true;
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ramp") && slopeController.slopeActive)
+        {
+            rb.AddForce(new Vector3(0, 0, -0.879649f) * slopeController.rampForceMultiplier,ForceMode.Force);
+        }
     }
 }

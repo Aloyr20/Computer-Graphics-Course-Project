@@ -23,6 +23,13 @@ public class EnemyHP : MonoBehaviour
     private float barTimer = 0f;
     private float startValue;
     private float targetValue;
+    bool isDead;
+
+    public float DissolveTime = 3f;
+    private bool isDissolving = false;
+
+    GameObject mesh;
+    public Material dissolveMaterial;
 
     public LevelClearController levelClearController;
 
@@ -42,6 +49,8 @@ public class EnemyHP : MonoBehaviour
 
         startValue = currentHealth;
         targetValue = currentHealth;
+
+        mesh = transform.GetChild(1).GetChild(1).gameObject;
     }
 
     void Update()
@@ -76,27 +85,36 @@ public class EnemyHP : MonoBehaviour
 
     IEnumerator DamageOverTimeRoutine(float dmgPerTick, int ticks, float tickRate, System.Action endStatus, System.Action startStatus)
     {
-        startStatus.Invoke();
-
-        for (int i = 0; i < ticks; i++)
+        if (!isDead)
         {
-            TakeDamage(dmgPerTick);
-            yield return new WaitForSeconds(tickRate);
-        }
+            startStatus.Invoke();
 
-        endStatus.Invoke();
+            for (int i = 0; i < ticks; i++)
+            {
+                if (!isDead)
+                {
+                    TakeDamage(dmgPerTick);
+                    yield return new WaitForSeconds(tickRate);
+                }
+            }
+
+            endStatus.Invoke();
+        }
     }
 
     IEnumerator SlowRoutine(float slowPercent, float duration, float slowDamage)
     {
-        isSlowed = true;
-        ai.nav.speed = originalSpeed * (1f - slowPercent);
-        TakeDamage(slowDamage);
+        if (!isDead)
+        {
+            isSlowed = true;
+            ai.nav.speed = originalSpeed * (1f - slowPercent);
+            TakeDamage(slowDamage);
 
-        yield return new WaitForSeconds(duration);
+            yield return new WaitForSeconds(duration);
 
-        ai.nav.speed = originalSpeed;
-        isSlowed = false;
+            ai.nav.speed = originalSpeed;
+            isSlowed = false;
+        }
     }
 
     public void TakeDamage(float damageAmount)
@@ -113,13 +131,22 @@ public class EnemyHP : MonoBehaviour
             GetComponentInChildren<ParticleSystem>().Play();
         }
 
-        CheckAlive();
+        if (!isDead)
+        {
+            CheckAlive();
+        }
     }
 
     void CheckAlive()
     {
         if (currentHealth <= 0)
         {
+            isDead = true;
+
+            mesh.GetComponent<SkinnedMeshRenderer>().material = dissolveMaterial;
+
+            StartCoroutine(StartDissolving());
+
             if (GetComponent<Animator>() != null)
                 GetComponent<Animator>().SetTrigger("Die");
 
@@ -132,7 +159,35 @@ public class EnemyHP : MonoBehaviour
             if (levelClearController != null)
                 levelClearController.EnemyKilled();
 
-            Destroy(gameObject, 5f);
+            Destroy(gameObject, DissolveTime - 0.6f);
         }
     }
+
+    public IEnumerator StartDissolving()
+    {
+        {
+            isDissolving = true;
+            SetDissolveRate(0);
+
+            float time = 0;
+            while (time < DissolveTime)
+            {
+                time += Time.deltaTime;
+                float rate = Mathf.Clamp01(time / DissolveTime);
+                SetDissolveRate(rate);
+                yield return null;
+            }
+
+            SetDissolveRate(1);
+            isDissolving = false;
+        }
+    }
+
+    private void SetDissolveRate(float value)
+    {
+        int shaderId = Shader.PropertyToID("_ClipRate");
+
+        mesh.GetComponent<SkinnedMeshRenderer>().material.SetFloat(shaderId, value);
+    }
 }
+

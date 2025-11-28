@@ -19,6 +19,8 @@ public class SpellProjectile : MonoBehaviour
     private Rigidbody rb;
     private bool hasHit = false;
 
+    public GameObject burnDecal;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -77,6 +79,16 @@ public class SpellProjectile : MonoBehaviour
         if (l != null)
         {
             l.enabled = false;
+        }
+
+        if (burnDecal != null)
+        {
+            Vector3 hitPosition = GetComponent<Transform>().position;
+            Quaternion hitRotation = GetComponent<Transform>().rotation;
+            GameObject spawnedDecal = Instantiate(burnDecal, null, true);
+            spawnedDecal.transform.position = hitPosition;
+            float multOf90 = Mathf.Round((hitRotation.eulerAngles.y - 90) / 90) * 90;
+            spawnedDecal.transform.Rotate(new Vector3(0, multOf90, 0));
         }
 
         Destroy(gameObject, 1.5f);

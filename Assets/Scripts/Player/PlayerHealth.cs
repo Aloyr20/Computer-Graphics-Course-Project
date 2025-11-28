@@ -49,4 +49,14 @@ public class PlayerHealth : MonoBehaviour
         targetValue = health;
         t = 0f;
     }
+
+    public void GiveHP(int hp)
+    {
+        health += hp;
+        health = Mathf.Clamp(health, 0, health);
+
+        startValue = healthBar.value;
+        targetValue = health;
+        t = 0f;
+    }
 }

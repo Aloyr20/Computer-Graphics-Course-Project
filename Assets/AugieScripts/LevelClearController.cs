@@ -10,6 +10,8 @@ public class LevelClearController : MonoBehaviour
     public GameObject WinScreen;
     public GameObject LoseScreen;
     public LutController lutController;
+    public SlopeController slopeController;
+    public Material orbMaterial;
 
     private void Start()
     {
@@ -17,6 +19,8 @@ public class LevelClearController : MonoBehaviour
 
         WinScreen.SetActive(false);
         LoseScreen.SetActive(false);
+
+        orbMaterial.SetFloat(Shader.PropertyToID("_Wave1Complete"), 0.0f);
     }
 
     void Update()
@@ -50,6 +54,10 @@ public class LevelClearController : MonoBehaviour
 
         lutController.SetHorror();
 
+        slopeController.slopeActive = true;
+
+        orbMaterial.SetFloat(Shader.PropertyToID("_Wave1Complete"), 1.0f);
+
         Wave2Skeletons.SetActive(true);
 
         // Enable custom LUT and orb stencil shader
@@ -61,8 +69,10 @@ public class LevelClearController : MonoBehaviour
         enemiesKilled = 0;
 
         lutController.SetOff();
-        Win();
 
+        slopeController.slopeActive = false;
+
+        //Win();
     }
 
     public void Win()

@@ -14,24 +14,29 @@ public class LightingController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             sphere.GetComponent<Renderer>().material = materials[0];
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             sphere.GetComponent<Renderer>().material = materials[1];
         }
 
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             sphere.GetComponent<Renderer>().material = materials[2];
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             sphere.GetComponent<Renderer>().material = materials[3];
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            sphere.GetComponent<Renderer>().material = materials[4];
         }
     }
 }
