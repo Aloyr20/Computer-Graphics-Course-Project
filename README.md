@@ -30,10 +30,7 @@ The Dithering + Pixelation Effect In Game
 The Dithering + Pixelation Effect + LUT
 <img width="1134" height="635" alt="{DCF63A0F-9BA9-45E9-924B-4A9916E8C01D}" src="https://github.com/user-attachments/assets/246747bb-2f21-428d-87d2-9bc477423059" />
 
-
-
-
-References: https://www.youtube.com/watch?v=cH0vNCv46bM
+References: https://www.youtube.com/watch?v=k9g2LaBrirI
 
 Shuaiyan Chen
 
