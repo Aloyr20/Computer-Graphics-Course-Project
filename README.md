@@ -29,6 +29,26 @@ The core idea of ​​this lava shader is as follows: First, to make the lava a
 
 Luke Boctor
 
+<img width="420" height="444" alt="image" src="https://github.com/user-attachments/assets/8c1257be-33ec-4f40-a313-99f45183c2fe" />
+
+Uses the decal projector component
+Rounds the angle of the spell projectile to the nearest 90 degrees on contact
+Places decal with that rotation
+
+
+<img width="301" height="324" alt="image" src="https://github.com/user-attachments/assets/7e54a73c-38c5-4fec-8880-690e3c7b9c17" />
+
+<img width="325" height="323" alt="image" src="https://github.com/user-attachments/assets/f79aae34-4752-4ec0-988e-92a9fdfd9220" />
+
+<img width="296" height="320" alt="image" src="https://github.com/user-attachments/assets/201a6539-da37-4d04-8159-b4388c04741a" />
+
+Uses stencil shader
+Samples cubemap with non-inverse view direction for nicer view
+
+<img width="615" height="585" alt="image" src="https://github.com/user-attachments/assets/3549d469-8469-4cce-863d-16b569303945" />
+
+Scrolling texture + moves player up
+F1 to toggle
 
 
 
