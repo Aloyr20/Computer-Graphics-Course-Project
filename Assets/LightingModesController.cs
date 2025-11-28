@@ -2,7 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 
-public class LightingController : MonoBehaviour
+public class LightingModesController : MonoBehaviour
 {
     public List<Material> materials = new List<Material>();
     public GameObject sphere;
