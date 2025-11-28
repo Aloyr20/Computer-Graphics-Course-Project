@@ -3,7 +3,9 @@ Intro to CG Course Project
 
 The Group members:
 Augie
+
 Shuaiyan Chen
+
 Luke Boctor
 
 
