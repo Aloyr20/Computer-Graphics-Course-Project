@@ -1,16 +1,18 @@
 # Computer-Graphics-Course-Project
 Intro to CG Course Project
 
-The Group members:
 
 Augie
 
+<img width="735" height="493" alt="image" src="https://github.com/user-attachments/assets/5e0d7527-5bce-4908-aa1e-1dca285748d1" />
+
+First I take the positional coordinates of the “pixels” which is the UVs. You then multiply them to make the coordinates bigger. You then divide them by the same number to keep the pixels enlarged but to fit them to the aspect ratio of the players screen. You then apply a simple noise output to provide pixelation.
+
+<img width="714" height="500" alt="image" src="https://github.com/user-attachments/assets/b0030629-d367-4326-86b6-49c643f79d17" />
+
+First I take the UV and apply it to the dither function and the noise function. I then subtract it by 0.52 on the x and 0.52 on the y. This gave me the desired output for the effect. I then multiplied the value by the dither effect float to actual store the strength of the effect. Then add it with the noise effect to create the base dithering. I then multiply it by color res to get a set color value output and number of pixels. I then add it by the same values as before to keep the strengthening consistent and then floor that value to get a round number for consistency. Lastly I divide it by the color Res to set the color/pixel ratio to then be outputted to the display.
+
 Shuaiyan Chen
-
-Luke Boctor
-
-
-
 
 <img width="1197" height="548" alt="image" src="https://github.com/user-attachments/assets/45f119d7-fda4-4ac6-b7a2-ef2f1baf7ce4" />
 <img width="1214" height="607" alt="image" src="https://github.com/user-attachments/assets/7a862cbf-c148-4ddb-8d7d-528f39cbfd6a" />
@@ -25,7 +27,7 @@ The Dissolve Shader works by using a random noise map to determine where objects
 
 The core idea of ​​this lava shader is as follows: First, to make the lava appear to be continuously flowing, the shader uses a Time node to provide an ever-increasing time value, which is then multiplied by the SurfaceSpeed ​​parameter to obtain an adjustable offset. This offset is input into the Offset of Tiling And Offset, causing the UV coordinates of the Lava texture to slide in one direction over time, creating the effect of flowing lava. Then, a Normal Map is used to simulate the unevenness of the lava surface. The Normal Map itself determines how light reflects off the material surface, and the NormalIntensity parameter multiplies the normals, thus enhancing or diminishing the unevenness. A higher NormalIntensity makes the surface rougher and more undulating, while a lower value makes the surface smoother, closer to a liquid state. Finally, the processed Normal Map is input into the material's Normal channel, giving the lava a realistic sense of volume and surface texture under lighting. Then, in terms of color representation, Lava color texture is used to provide the color display of lava. Then, LavaTexture is multiplyed with MainColor. This final color output is sent to BaseColor to render the main color visual of the lava. 
 
-
+Luke Boctor
 
 
 
