@@ -12,7 +12,28 @@ First I take the positional coordinates of the “pixels” which is the UVs. Yo
 
 <img width="714" height="500" alt="image" src="https://github.com/user-attachments/assets/b0030629-d367-4326-86b6-49c643f79d17" />
 
-First I take the UV and apply it to the dither function and the noise function. I then subtract it by 0.52 on the x and 0.52 on the y. This gave me the desired output for the effect. I then multiplied the value by the dither effect float to actual store the strength of the effect. Then add it with the noise effect to create the base dithering. I then multiply it by color res to get a set color value output and number of pixels. I then add it by the same values as before to keep the strengthening consistent and then floor that value to get a round number for consistency. Lastly I divide it by the color Res to set the color/pixel ratio to then be outputted to the display. I believed add this to the game was a good Idea as it added to our games old and retro feel while also increasing the intesity once the player was in the second wave and the lut was activated. The lut combinded with the dither effect added to the games overall horror feel and when the dither effect was combined with the pixelation effect increased the games retro feel.
+The dither effect was built from a tutorial on youtube referenced below. I chose to do this as I wanted to learn how to make a higher leveled dithering effect and I felt that this version of a dither effect fit very well to our game. This is how it works: First I take the UV and apply it to the dither function and the noise function. I then subtract it by 0.52 on the x and 0.52 on the y. This gave me the desired output for the effect. I then multiplied the value by the dither effect float to actual store the strength of the effect. Then add it with the noise effect to create the base dithering. I then multiply it by color res to get a set color value output and number of pixels. I then add it by the same values as before to keep the strengthening consistent and then floor that value to get a round number for consistency. Lastly I divide it by the color Res to set the color/pixel ratio to then be outputted to the display. I believed add this to the game was a good Idea as it added to our games old and retro feel while also increasing the intesity once the player was in the second wave and the lut was activated. The lut combinded with the dither effect added to the games overall horror feel and when the dither effect was combined with the pixelation effect increased the games retro feel. 
+
+Both the dithering and the pixelation effect were toggelable using keys 4 and 5. To turn them off you just press the key again
+
+In Game Photos Of Augies Effects:
+
+The Pixelation Effect In Game
+<img width="867" height="492" alt="{4EA3D68A-5D7A-4E7A-9FE3-150F56A5DA49}" src="https://github.com/user-attachments/assets/4489abb8-0376-498b-b3db-ed21eae18643" />
+
+The Dithering Effect In Game
+<img width="921" height="519" alt="{D260A600-94F6-418B-A1AC-62AA1CE6527A}" src="https://github.com/user-attachments/assets/ea749614-6fa5-4bcb-9946-dc1ff6e6d641" />
+
+The Dithering + Pixelation Effect In Game
+<img width="935" height="525" alt="{DEE87115-2922-450F-B862-643F45B5FD71}" src="https://github.com/user-attachments/assets/a5b8a300-048c-4c0c-af70-7df263fc905c" />
+
+The Dithering + Pixelation Effect + LUT
+<img width="1134" height="635" alt="{DCF63A0F-9BA9-45E9-924B-4A9916E8C01D}" src="https://github.com/user-attachments/assets/246747bb-2f21-428d-87d2-9bc477423059" />
+
+
+
+
+References: https://www.youtube.com/watch?v=cH0vNCv46bM
 
 Shuaiyan Chen
 
