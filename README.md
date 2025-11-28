@@ -3,6 +3,8 @@ Intro to CG Course Project
 
 Course Project Presentation Link: https://www.youtube.com/watch?v=cH0vNCv46bM
 
+This build/version contains bugs such as animations on the skeletons not playing at all, and the lava not dealing damage. The animation bugs don't happen when playing the game in the editor after opening unity fresh, but after building, the editor version and the build version both get bugged and animations don't play properly. We tried to debug by checking that the correct animations were set, that the right animator was applied to the models, forcing enabling the walking bool and forcing the animations to play, but they wouldn't play.
+
 
 Augie
 
